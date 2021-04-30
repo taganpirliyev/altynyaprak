@@ -1,42 +1,49 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:async' show Future;
-import 'package:altynyaprak/views/rubagylar_view.dart';
+import 'package:altynyaprak/views/home.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:altynyaprak/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rive_splash_screen/rive_splash_screen.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class Home extends StatefulWidget {
+class RubagylarView extends StatefulWidget {
   var url = globals.mainUrl;
-  Home({this.url});
+  RubagylarView({this.url});
 
   @override
-  _HomeState createState() => _HomeState();
+  _RubagylarViewState createState() => _RubagylarViewState();
 }
 
-class _HomeState extends State<Home> {
-  final Completer<WebViewController> _completer =
-      Completer<WebViewController>();
+class _RubagylarViewState extends State<RubagylarView> {
 
   @override
   void initState() {
     _future = loadString();
+    _future1 = loadString1();
+    _future2 = loadString2();
+
     // TODO: implement initState
     super.initState();
-    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
   Future _future;
   Future<String> loadString() async =>
-      await rootBundle.loadString('assets/parla.txt');
+      await rootBundle.loadString('assets/rubagylar.txt');
+
+  Future _future1;
+  Future<String> loadString1() async =>
+      await rootBundle.loadString('assets/tuyuglar.txt');
+
+  Future _future2;
+  Future<String> loadString2() async =>
+      await rootBundle.loadString('assets/bentler.txt');
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           leading: Icon(
@@ -62,23 +69,15 @@ class _HomeState extends State<Home> {
               indicatorColor: Colors.white,
               tabs: <Widget>[
                 Tab(
-                  child: Text(
-                    'Baş Sahypa',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Tab(
                   child: GestureDetector(
                     onTap: () {
                       Navigator.of(context).pop();
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => RubagylarView(
+                          builder: (BuildContext context) => Home(
                           )));
                     },
                     child: Text(
-                      'Poemalar',
+                      'Baş Sahypa',
                       style: TextStyle(
                         color: Colors.white,
                       ),
@@ -87,7 +86,7 @@ class _HomeState extends State<Home> {
                 ),
                 Tab(
                   child: Text(
-                    'Watançylyk goşgulary',
+                    'Rubagylar',
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -95,7 +94,7 @@ class _HomeState extends State<Home> {
                 ),
                 Tab(
                   child: Text(
-                    'Rubagylar, Tuýuglar, Bentler',
+                    'Tuyglar',
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -103,7 +102,7 @@ class _HomeState extends State<Home> {
                 ),
                 Tab(
                   child: Text(
-                    'Ýaşaýyş-durmuş pelsepeli, duýgy-liriki goşgylar',
+                    'Bentler',
                     style: TextStyle(
                       color: Colors.white,
                     ),
@@ -124,29 +123,29 @@ class _HomeState extends State<Home> {
             Container(
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Colors.orangeAccent,
-                  Colors.white,
-                ],
-              )),
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Colors.orangeAccent,
+                      Colors.white,
+                    ],
+                  )),
               child: Column(
                 children: [
                   Center(
                       child: Container(
                         padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                         child: Text(
-                    'Şahyr\nPirliýewa Aýgül Baýramownanyň Doredijilik sahypasy',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.parisienne(
-                        textStyle: TextStyle(
-                            color: Colors.white,
-                            letterSpacing: 2,
-                            fontSize: 30,
-                            fontWeight: FontWeight.w600),
-                    ),
-                  ),
+                          'Şahyr\nPirliýewa Aýgül Baýramownanyň Doredijilik sahypasy',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.parisienne(
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                letterSpacing: 2,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
                       )),
                   Image.asset("assets/ap.png"),
                   Text("data"),
@@ -154,43 +153,31 @@ class _HomeState extends State<Home> {
               ),
             ),
             Container(
-              /*padding: EdgeInsets.fromLTRB(30, 20, 20, 20),
+              padding: EdgeInsets.fromLTRB(30, 20, 20, 20),
               child: SingleChildScrollView(
                 child: FutureBuilder(
-                    future: _future,
+                  future: _future,
+                  builder: (context, snapshot) =>
+                      Text(snapshot.hasData ? '${snapshot.data}' : ' Reading...', style: TextStyle(fontSize: 17),),),
+              ),
+            ),
+            Container(
+                padding: EdgeInsets.fromLTRB(30, 20, 20, 20),
+                child: SingleChildScrollView(
+                  child: FutureBuilder(
+                    future: _future1,
                     builder: (context, snapshot) =>
                         Text(snapshot.hasData ? '${snapshot.data}' : ' Reading...', style: TextStyle(fontSize: 17),),),
-              )*/
+                )
             ),
             Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.height,
-              child: WebView(
-                initialUrl: globals.watanUrl,
-                onWebViewCreated: ((WebViewController webViewController) {
-                  _completer.complete(webViewController);
-                }),
-              ),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.height,
-              child: WebView(
-                initialUrl: globals.rubagyUrl,
-                onWebViewCreated: ((WebViewController webViewController) {
-                  _completer.complete(webViewController);
-                }),
-              ),
-            ),
-            Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.height,
-              child: WebView(
-                initialUrl: globals.lyricsUrl,
-                onWebViewCreated: ((WebViewController webViewController) {
-                  _completer.complete(webViewController);
-                }),
-              ),
+                padding: EdgeInsets.fromLTRB(30, 20, 20, 20),
+                child: SingleChildScrollView(
+                  child: FutureBuilder(
+                    future: _future2,
+                    builder: (context, snapshot) =>
+                        Text(snapshot.hasData ? '${snapshot.data}' : ' Reading...', style: TextStyle(fontSize: 17),),),
+                )
             ),
           ],
         ),

@@ -1,7 +1,6 @@
 
 import 'package:altynyaprak/views/home.dart';
 import 'package:flutter/material.dart';
-import 'package:rive_splash_screen/rive_splash_screen.dart';
 
 void main() {
   runApp(MyApp());

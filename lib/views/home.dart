@@ -1,10 +1,7 @@
-import 'dart:async';
-import 'dart:async' show Future;
 import 'package:altynyaprak/views/pelsepe.dart';
 import 'package:altynyaprak/views/poemalar.dart';
 import 'package:altynyaprak/views/rubagylar_view.dart';
 import 'package:altynyaprak/views/watancylyk.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:altynyaprak/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,14 +17,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
-    _future = loadString();
     // TODO: implement initState
     super.initState();
   }
-
-  Future _future;
-  Future<String> loadString() async =>
-      await rootBundle.loadString('assets/parla.txt');
 
   @override
   Widget build(BuildContext context) {
@@ -143,14 +135,6 @@ class _HomeState extends State<Home> {
             ),
             Container(
               child: PoemView(),
-
-              /*padding: EdgeInsets.fromLTRB(30, 20, 20, 20),
-              child: SingleChildScrollView(
-                child: FutureBuilder(
-                    future: _future,
-                    builder: (context, snapshot) =>
-                        Text(snapshot.hasData ? '${snapshot.data}' : ' Reading...', style: TextStyle(fontSize: 17),),),
-              )*/
             ),
             Container(
               child: WatanView(),

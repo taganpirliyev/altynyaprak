@@ -4,7 +4,6 @@ import 'package:altynyaprak/views/rubagylar_view.dart';
 import 'package:altynyaprak/views/watancylyk.dart';
 import 'package:altynyaprak/globals.dart' as globals;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
   var url = globals.mainUrl;
@@ -35,13 +34,12 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.orangeAccent,
           title: Text(
             "Altyn Yaprak",
-            style: GoogleFonts.parisienne(
-              textStyle: TextStyle(
+            style: TextStyle(
+              fontFamily: "Parisienne",
                   color: Colors.white,
                   letterSpacing: 2,
                   fontSize: 25,
                   fontWeight: FontWeight.w600),
-            ),
           ),
           bottom: PreferredSize(
             child: TabBar(
@@ -119,13 +117,12 @@ class _HomeState extends State<Home> {
                     child: Text(
                       'Şahyr\nPirliýewa Aýgül Baýramownanyň Doredijilik sahypasy',
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.parisienne(
-                        textStyle: TextStyle(
+                      style: TextStyle(
+                        fontFamily: "Parisienne",
                             color: Colors.white,
                             letterSpacing: 2,
                             fontSize: 30,
                             fontWeight: FontWeight.w600),
-                      ),
                     ),
                   )),
                   Image.asset("assets/ap.png"),

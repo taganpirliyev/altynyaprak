@@ -1,13 +1,13 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:async' show Future;
+import 'package:altynyaprak/views/pelsepe.dart';
+import 'package:altynyaprak/views/poemalar.dart';
 import 'package:altynyaprak/views/rubagylar_view.dart';
+import 'package:altynyaprak/views/watancylyk.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:altynyaprak/globals.dart' as globals;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rive_splash_screen/rive_splash_screen.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class Home extends StatefulWidget {
   var url = globals.mainUrl;
@@ -18,15 +18,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final Completer<WebViewController> _completer =
-      Completer<WebViewController>();
-
   @override
   void initState() {
     _future = loadString();
     // TODO: implement initState
     super.initState();
-    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
   Future _future;
@@ -70,18 +66,10 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Tab(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) => RubagylarView(
-                          )));
-                    },
-                    child: Text(
-                      'Poemalar',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
+                  child: Text(
+                    'Poemalar',
+                    style: TextStyle(
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -135,25 +123,27 @@ class _HomeState extends State<Home> {
                 children: [
                   Center(
                       child: Container(
-                        padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-                        child: Text(
-                    'Şahyr\nPirliýewa Aýgül Baýramownanyň Doredijilik sahypasy',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.parisienne(
+                    padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+                    child: Text(
+                      'Şahyr\nPirliýewa Aýgül Baýramownanyň Doredijilik sahypasy',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.parisienne(
                         textStyle: TextStyle(
                             color: Colors.white,
                             letterSpacing: 2,
                             fontSize: 30,
                             fontWeight: FontWeight.w600),
+                      ),
                     ),
-                  ),
-                      )),
+                  )),
                   Image.asset("assets/ap.png"),
                   Text("data"),
                 ],
               ),
             ),
             Container(
+              child: PoemView(),
+
               /*padding: EdgeInsets.fromLTRB(30, 20, 20, 20),
               child: SingleChildScrollView(
                 child: FutureBuilder(
@@ -163,35 +153,14 @@ class _HomeState extends State<Home> {
               )*/
             ),
             Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.height,
-              child: WebView(
-                initialUrl: globals.watanUrl,
-                onWebViewCreated: ((WebViewController webViewController) {
-                  _completer.complete(webViewController);
-                }),
-              ),
+              child: WatanView(),
             ),
             Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.height,
-              child: WebView(
-                initialUrl: globals.rubagyUrl,
-                onWebViewCreated: ((WebViewController webViewController) {
-                  _completer.complete(webViewController);
-                }),
-              ),
+              child: RubagylarView(),
             ),
             Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.height,
-              child: WebView(
-                initialUrl: globals.lyricsUrl,
-                onWebViewCreated: ((WebViewController webViewController) {
-                  _completer.complete(webViewController);
-                }),
-              ),
-            ),
+              child: PelsepeView(),
+            )
           ],
         ),
       ),

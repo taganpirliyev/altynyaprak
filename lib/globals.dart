@@ -5,3 +5,4 @@ const rubagyUrl = "https://altynyaprak.com/rubagylar-tuyuglar-bentler/";
 const lyricsUrl = "https://altynyaprak.com/yasayys-durmus-pelsepeli-emosional-liriki-gosgular/";
 
 
+

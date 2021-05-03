@@ -129,7 +129,6 @@ class _HomeState extends State<Home> {
                     ),
                   )),
                   Image.asset("assets/ap.png"),
-                  Text("data"),
                 ],
               ),
             ),

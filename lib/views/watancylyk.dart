@@ -57,7 +57,7 @@ class _WatanViewState extends State<WatanView> {
 
   Future _future4;
   Future<String> loadString4() async =>
-      await rootBundle.loadString('assets/watan/Bitaraplyk senasy.txt.txt');
+      await rootBundle.loadString('assets/watan/Bitaraplyk senasy.txt');
 
   Future _future5;
   Future<String> loadString5() async =>

@@ -164,51 +164,56 @@ class _PoemViewState extends State<PoemView> {
         ),
         body: Center(
           child: Container(
+            width: 450,
 
             child: SingleChildScrollView(
-              child: Column(children: [
-                GestureDetector(
-                  onTap: () {Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext context) => GosgyView(
-                      future: _future,
-                      )));},
-                  child: Card(
-                    color: Colors.white24,
-                    elevation: 0.0,
-                    margin: EdgeInsets.fromLTRB(30, 30, 30, 0),
-                    shadowColor: Colors.white,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Container(
-                        height: 120,
-                        width: 300,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Colors.orangeAccent,
-                              Colors.redAccent,
-                              Colors.orangeAccent,
-                            ],
+              child: Column(
+                  children: [
+                Container(
+
+                  child: GestureDetector(
+                    onTap: () {Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => GosgyView(
+                        future: _future,
+                        )));},
+                    child: Card(
+                      color: Colors.white24,
+                      elevation: 0.0,
+                      margin: EdgeInsets.fromLTRB(30, 30, 30, 0),
+                      shadowColor: Colors.white,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
+                          height: 120,
+                          width: 300,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Colors.orangeAccent,
+                                Colors.redAccent,
+                                Colors.orangeAccent,
+                              ],
+                            ),
                           ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Alym Şahyr çyksa",
-                            style: GoogleFonts.parisienne(
-                              textStyle: TextStyle(
-                                  color: Colors.white,
-                                  letterSpacing: 2,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.w600),
+                          child: Center(
+                            child: Text(
+                              "Alym Şahyr çyksa",
+                              style: GoogleFonts.parisienne(
+                                textStyle: TextStyle(
+                                    color: Colors.white,
+                                    letterSpacing: 2,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
                             ),
                           ),
                         ),
+                        /*clipper: ShapeBorderClipper(shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)
+                        )),*/
                       ),
-                      /*clipper: ShapeBorderClipper(shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)
-                      )),*/
                     ),
                   ),
                 ),

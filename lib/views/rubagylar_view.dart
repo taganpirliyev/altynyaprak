@@ -56,6 +56,7 @@ class _RubagylarViewState extends State<RubagylarView> {
         ),
         body: Center(
           child: Container(
+            width: 450,
             child: SingleChildScrollView(
               child: Column(children: [
                 GestureDetector(

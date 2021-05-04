@@ -28,30 +28,30 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           leading: Icon(
             Icons.menu_book_rounded,
-            color: Colors.white,
+            color: Colors.orangeAccent,
             size: 32,
           ),
-          backgroundColor: Colors.orangeAccent,
+          backgroundColor: Colors.white,
           title: Text(
             "Altyn Yaprak",
             style: TextStyle(
               fontFamily: "Parisienne",
-                  color: Colors.white,
+                  color: Colors.orangeAccent,
                   letterSpacing: 2,
-                  fontSize: 25,
+                  fontSize: 26,
                   fontWeight: FontWeight.w600),
           ),
           bottom: PreferredSize(
             child: TabBar(
               isScrollable: true,
-              unselectedLabelColor: Colors.white.withOpacity(0.5),
-              indicatorColor: Colors.white,
+              unselectedLabelColor: Colors.orangeAccent.withOpacity(0.5),
+              indicatorColor: Colors.orangeAccent,
               tabs: <Widget>[
                 Tab(
                   child: Text(
                     'Baş Sahypa',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.orangeAccent,
                     ),
                   ),
                 ),
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
                   child: Text(
                     'Poemalar',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.orangeAccent,
                     ),
                   ),
                 ),
@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
                   child: Text(
                     'Watançylyk goşgulary',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.orangeAccent,
                     ),
                   ),
                 ),
@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
                   child: Text(
                     'Rubagylar, Tuýuglar, Bentler',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.orangeAccent,
                     ),
                   ),
                 ),
@@ -83,7 +83,7 @@ class _HomeState extends State<Home> {
                   child: Text(
                     'Ýaşaýyş-durmuş pelsepeli, duýgy-liriki goşgylar',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.orangeAccent,
                     ),
                   ),
                 ),
@@ -102,11 +102,16 @@ class _HomeState extends State<Home> {
             Container(
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
                 colors: [
-                  Colors.orangeAccent,
+                  Colors.white24,
+                  Colors.white24,
+                  Colors.white24,
+                  Colors.white24,
                   Colors.white,
+                  Colors.white,
+                  Colors.orangeAccent,
                 ],
               )),
               child: Column(
@@ -119,7 +124,7 @@ class _HomeState extends State<Home> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: "Parisienne",
-                            color: Colors.white,
+                            color: Colors.orangeAccent,
                             letterSpacing: 2,
                             fontSize: 30,
                             fontWeight: FontWeight.w600),

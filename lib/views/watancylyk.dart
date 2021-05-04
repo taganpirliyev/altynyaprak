@@ -123,14 +123,15 @@ class _WatanViewState extends State<WatanView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          elevation: 0.2,
           iconTheme: IconThemeData(color: Colors.green),
-          backgroundColor: Colors.orangeAccent,
+          backgroundColor: Colors.white,
           title: Row(
             children: [
               Text(
                 'Watançylyk goşgulary',
                 style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.orangeAccent),
               ),
             ],
           ),
@@ -1042,7 +1043,7 @@ class _WatanViewState extends State<WatanView> {
                   child: Card(
                     color: Colors.white24,
                     elevation: 0.0,
-                    margin: EdgeInsets.fromLTRB(30, 30, 30, 0),
+                    margin: EdgeInsets.fromLTRB(30, 30, 30, 30),
                     shadowColor: Colors.white,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),

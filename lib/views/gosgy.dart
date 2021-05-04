@@ -23,8 +23,8 @@ class _GosgyViewState extends State<GosgyView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.orangeAccent,
-          iconTheme: IconThemeData(color: Colors.white),
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.orangeAccent),
         ),
         body: Container(
             child: SingleChildScrollView(
@@ -35,10 +35,10 @@ class _GosgyViewState extends State<GosgyView> {
               child: Text(
                 snapshot.hasData ? '${snapshot.data}' : ' Reading...',
                 style: TextStyle(
-                  fontFamily: "Parisienne",
+                  fontFamily: "Roboto",
                     height: 1.0,
                     color: Colors.black,
-                    fontSize: 25,
+                    fontSize: 22,
                     fontWeight: FontWeight.w600),
               ),
             ),
